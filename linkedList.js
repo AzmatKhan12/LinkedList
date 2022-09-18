@@ -64,12 +64,36 @@ class LinkedList {
         }
         this.size++;
     }
+    // insert a node at he given index
+    insert(value, index) {
+        //first condition
+        if (index < 0 || index > this.size) {
+            console.log('out of the index');
+            return;
+        }
+        //2nd condition
+        if (index === 0) {
+            this.prepend(value);
+        }
+        //3rd condition
+        else {
+            const node = new Node(value);
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node
+            this.size++;
+        }
+
+    }
 }
 
 let list = new LinkedList();
 console.log(list.isEmpty());
 console.log(list.getSize());
-
+//prepend
 list.prepend(10);
 list.print();
 
@@ -77,8 +101,18 @@ list.prepend(20);
 list.prepend(30);
 list.print();
 
+//append
 list.append(40);
 list.print();
+
+//AT given index
+list.insert(10, 7);
+list.print();
+
+list.insert(15, 2);
+list.print();
+
+
 
 
 
