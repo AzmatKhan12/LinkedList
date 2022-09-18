@@ -157,6 +157,19 @@ class LinkedList {
                     curr reached to the null then simply return -1*/
     }
 
+    //Reverse the LinkedList
+    reverse() {
+        let prev = null;
+        let curr = this.head;
+        while (curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+    }
+
 
 }
 let list = new LinkedList();
@@ -197,6 +210,10 @@ list.print()
 console.log(list.search(20));
 console.log(list.search(30));
 console.log(list.search(15));
+
+//Reverse the linkedList
+list.reverse();
+list.print();
 
 
 
