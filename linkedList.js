@@ -139,6 +139,24 @@ class LinkedList {
         }
     }
 
+    //Search value in linkedList
+    search(value) {
+        if (this.isEmpty()) {
+            retrun - 1;
+        }
+        let i = 0;
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === value) {
+                return i;
+            }
+            curr = curr.next;
+            i++
+        }
+        return -1; /*while value is not present in a list
+                    curr reached to the null then simply return -1*/
+    }
+
 
 }
 let list = new LinkedList();
@@ -170,10 +188,16 @@ list.removeFrom(2);
 list.print()
 
 //remove node from value;
-list.removeValue(30);
-list.print();
-list.removeValue(40);
-list.print();
+// list.removeValue(30);
+// list.print();
+// list.removeValue(40);
+// list.print();
+
+// search the value.
+console.log(list.search(20));
+console.log(list.search(30));
+console.log(list.search(15));
+
 
 
 
