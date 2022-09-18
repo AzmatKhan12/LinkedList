@@ -88,6 +88,29 @@ class LinkedList {
         }
 
     }
+
+    //Remove the node from the index.
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+            console.log('index out of bound');
+            return;
+        }
+        let removeNode = this.head;
+        if (index === 0) {
+            removeNode = this.head;
+            this.head = this.head.next;
+        }
+        else {
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            removeNode = prev.next;
+            prev.next = removeNode.next;
+        }
+        this.size--;
+        return removeNode.value;
+    }
 }
 
 let list = new LinkedList();
@@ -105,12 +128,19 @@ list.print();
 list.append(40);
 list.print();
 
-//AT given index
+//Add node AT given index
 list.insert(10, 7);
 list.print();
 
 list.insert(15, 2);
 list.print();
+
+//remove node from index
+list.removeFrom(2);
+list.print()
+list.removeFrom(2);
+list.print()
+
 
 
 
