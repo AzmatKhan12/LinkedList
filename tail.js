@@ -115,3 +115,7 @@ class LinkedList {
     }
 
 }
+
+//incapsulate the file & EXport the file.
+module.exports = LinkedList;
+
